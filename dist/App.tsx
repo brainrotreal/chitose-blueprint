@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 
-import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider/index";
+import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { UserProvider, useUserStore } from "./src/store/UserStore";
 
 import TabNavigator from "./src/components/navigation/TabNavigator";
 import AuthNavigator from "./src/components/navigation/AuthNavigator";
 
-import { View, Text } from "@gluestack-ui/themed";
+import { Text } from "@/components/ui/text";
+import { View } from "@/components/ui/view";
 
 function LoadingScreen() {
   return (
@@ -33,7 +34,7 @@ export default function App() {
   }, []);
 
   return (
-      <GluestackUIProvider mode="dark">
+      <GluestackUIProvider mode="light">
         <Text className="text-typography-950" size="xl">Hello, World!</Text>
       </GluestackUIProvider>
   );
