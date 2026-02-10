@@ -1,6 +1,9 @@
-import { View, Platform } from 'react-native';
+import { Platform } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Pressable, Text, Icon } from '@gluestack-ui/themed';
+import { View } from '@/components/ui/view';
+import { Icon } from '@/components/ui/icon';
+import { Text } from '@/components/ui/text';
+import { Pressable } from '@/components/ui/pressable'
 import { PlayIcon, MenuIcon, BookOpenIcon, UserIcon, NotebookPenIcon, PhoneIcon } from 'lucide-react-native';
 import HomeScreen from '../../screens/HomeScreen';
 import ChatbotScreen from '../../screens/ChatbotScreen';
@@ -15,22 +18,7 @@ function TabBar({ state, descriptors, navigation }) {
 
   return (
     <View
-      style={{
-        flexDirection: 'row',
-        height: 70,
-        paddingBottom: Platform.OS === 'ios' ? 10 : 0,
-        backgroundColor: '#1A202C',
-        borderTopWidth: 1,
-        borderTopColor: '#3E4957',
-        elevation: 10,
-        shadowColor: '#000',
-        shadowOpacity: 0.5,
-        shadowOffset: {
-          width: 0,
-          height: -2,
-        },
-        shadowRadius: 4,
-      }}
+      className="flex-row h-16 pb-2 bg-gray-800 border-t border-gray-600 shadow-md"
     >
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
@@ -55,36 +43,9 @@ function TabBar({ state, descriptors, navigation }) {
         });
 
         return (
-          <Pressable
-            key={route.key}
-            onPress={onPress}
-            onLongPress={onLongPress}
-            style={{
-              flex: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-              paddingVertical: 10,
-            }}
-          >
+          <Pressable key={route.key} onPress={onPress} onLongPress={onLongPress} className="flex-1 items-center justify-center">
             <Icon
-              as={
-                label === 'Home'
-                  ? MenuIcon
-                  : label === 'Modules'
-                  ? PlayIcon
-                  : label === 'Reading'
-                  ? BookOpenIcon
-                  : label === 'Profile'
-                  ? UserIcon
-                  : label === 'Writing'
-                  ? NotebookPenIcon
-                  : label === 'Chatbot'
-                  ? PhoneIcon
-                  : 'home'
-              }
-              color={isFocused ? "$primary500" : '#718096'}
-              transition={0.2}
-              size={24}
+              size={'xl'}
             />
           </Pressable>
         );

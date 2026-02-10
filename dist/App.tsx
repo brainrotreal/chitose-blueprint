@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
+import "./global.css";
 
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { UserProvider, useUserStore } from "./src/store/UserStore";
@@ -10,6 +11,7 @@ import AuthNavigator from "./src/components/navigation/AuthNavigator";
 
 import { Text } from "@/components/ui/text";
 import { View } from "@/components/ui/view";
+import { Button } from "@/components/ui/button";
 
 function LoadingScreen() {
   return (
@@ -19,10 +21,8 @@ function LoadingScreen() {
   );
 }
 
-
 function RootNavigation() {
   const { user, loading } = useUserStore();
-
   if (loading) return <LoadingScreen />;
   return user ? <TabNavigator /> : <AuthNavigator />;
 }
@@ -34,8 +34,13 @@ export default function App() {
   }, []);
 
   return (
-      <GluestackUIProvider mode="light">
-        <Text className="text-typography-950" size="xl">Hello, World!</Text>
+      <GluestackUIProvider mode="dark">
+        <UserProvider>
+          <NavigationContainer>
+            <RootNavigation />
+            <StatusBar style="auto" />
+          </NavigationContainer>
+        </UserProvider>
       </GluestackUIProvider>
   );
 }
