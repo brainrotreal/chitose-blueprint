@@ -34,9 +34,7 @@ export default function App() {
 
   return (
       <GluestackUIProvider mode="dark">
-        <View className="bg-background-50">
-          <Text className="text-typography-white" size="6xl">The Chitose Blueprint</Text>
-        </View>
+        <Text className="text-typography-950" size="xl">Hello, World!</Text>
       </GluestackUIProvider>
   );
 }
