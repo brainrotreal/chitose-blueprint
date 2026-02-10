@@ -1,0 +1,41 @@
+{
+    "expo": {
+        "name": "The Chitose Blueprint",
+        "slug": "the-chitose-blueprint",
+        "owner": "brainrotreal",
+        "version": "0.1.0",
+        "orientation": "portrait",
+        "icon": "./src/assets/images/icon.png",
+        "userInterfaceStyle": "automatic",
+        "splash": {
+            "image": "./src/assets/images/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#1A202C"
+        },
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "ios": {
+            "supportsTablet": true,
+            "bundleIdentifier": "com.brainrotreal.chitoseblueprint"
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./src/assets/images/adaptive-icon.png",
+                "backgroundColor": "#1A202C"
+            },
+            "package": "com.brainrotreal.chitoseblueprint"
+        },
+        "web": {
+            "favicon": "./src/assets/images/favicon.png"
+        },
+        "extra": {
+            "eas": {
+                "projectId": "your-expo-project-id"
+            }
+        },
+        "plugins": [
+          "expo-router"
+        ]
+    }
+}
