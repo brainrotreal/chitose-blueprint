@@ -1,8 +1,6 @@
-import { Platform } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View } from '@/components/ui/view';
 import { Icon } from '@/components/ui/icon';
-import { Text } from '@/components/ui/text';
 import { Pressable } from '@/components/ui/pressable'
 import { PlayIcon, MenuIcon, BookOpenIcon, UserIcon, NotebookPenIcon, PhoneIcon } from 'lucide-react-native';
 import HomeScreen from '../../screens/HomeScreen';
@@ -18,7 +16,7 @@ function TabBar({ state, descriptors, navigation }) {
 
   return (
     <View
-      className="flex-row h-16 pb-2 bg-gray-800 border-t border-gray-600 shadow-md"
+      className="flex-row h-16 pb-2 bg-background-100 border-t border-gray-600 shadow-md"
     >
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
@@ -43,11 +41,20 @@ function TabBar({ state, descriptors, navigation }) {
         });
 
         return (
-          <Pressable key={route.key} onPress={onPress} onLongPress={onLongPress} className="flex-1 items-center justify-center">
+            <Pressable key={route.key} onPress={onPress} onLongPress={onLongPress} className="flex-1 items-center justify-center">
             <Icon
               size={'xl'}
+              as={
+              route.name === 'Home' ? PlayIcon :
+              route.name === 'Modules' ? MenuIcon :
+              route.name === 'Reading' ? BookOpenIcon :
+              route.name === 'Profile' ? UserIcon :
+              route.name === 'Writing' ? NotebookPenIcon :
+              route.name === 'Chatbot' ? PhoneIcon :
+              null
+              }
             />
-          </Pressable>
+            </Pressable>
         );
       })}
     </View>

@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, Button, ButtonText, Input, InputField } from "@gluestack-ui/themed";
+import { View } from "@/components/ui/view";
+import { Input, InputField } from "@/components/ui/input";
+import { Button, ButtonText } from "@/components/ui/button";
+// import { View, Input, Button, Text } from "@gluestack-ui/themed";
 import { config } from "../../components/ui/gluestack-ui-provider/config"; // adjust path
 import { useUserStore } from "../store/UserStore";
 
@@ -18,8 +21,8 @@ export default function LoginScreen({ goToRegister }) {
   }
 
   return (
-    <View flex={1} justifyContent="center" alignItems="center" backgroundColor="$background50" padding="$6">
-      <Input variant="rounded" marginBottom="$4" width="$64">
+    <View className="flex-1 justify-center items-center bg-background-50 p-6">
+      <Input className="rounded mb-4 w-64">
         <InputField
           placeholder="Email"
           placeholderTextColor="#999"
@@ -28,7 +31,7 @@ export default function LoginScreen({ goToRegister }) {
         />
       </Input>
 
-      <Input variant="rounded" marginBottom="$4" width="$64">
+      <Input className="rounded mb-4 w-64">
         <InputField
           placeholder="Password"
           placeholderTextColor="#999"
@@ -38,13 +41,13 @@ export default function LoginScreen({ goToRegister }) {
         />
       </Input>
 
-      <Button variant="solid" onPress={handleLogin} width="300px" height="50px" margin="25px" backgroundColor="$secondary500">
-        <ButtonText textAlign="center" fontSize="35px" color="$typography950" fontWeight="$bold">Login</ButtonText>
+      <Button className="bg-secondary-500 m-[25px]" onPress={handleLogin} action="primary" variant="solid" size="xl">
+        <ButtonText className="text-typography-950 font-bold">Login</ButtonText>
       </Button>
 
       {/* Bottom navigation */}
-      <Button variant="link" onPress={goToRegister}>
-        <ButtonText color="$secondary500">Don't have an account?</ButtonText>
+      <Button className="" onPress={goToRegister}>
+        <ButtonText className="text-secondary-500">Don't have an account?</ButtonText>
       </Button>
     </View>
   );
